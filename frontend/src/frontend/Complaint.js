@@ -18,7 +18,7 @@ const Complaint = () => {
   const sendMessage = async (userId, textMessage) => {
     try {
       const response = await fetch(
-        `http://localhost:5800/sendMessage/${userId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/sendMessage/${userId}`,
         {
           method: "PUT",
           headers: {
@@ -106,8 +106,8 @@ const Complaint = () => {
             </li>
             <li className="mb-2">
               <h6>
-                It may take some time to review your concern so kindly be patient
-                and dont send multiple messages
+                It may take some time to review your concern so kindly be
+                patient and dont send multiple messages
               </h6>
             </li>
             <li className="mb-2">
@@ -121,9 +121,9 @@ const Complaint = () => {
             </li>
           </ul>
         </div>
-        </div>
-      </>
-      );
+      </div>
+    </>
+  );
 };
 
-      export default Complaint;
+export default Complaint;

@@ -22,7 +22,9 @@ function Update() {
   }, []);
 
   const getUser = async () => {
-    let result = await fetch(`http://localhost:5800/users/${params.id}`);
+    let result = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}users/${params.id}`
+    );
     result = await result.json();
     console.warn(result);
 
@@ -40,22 +42,25 @@ function Update() {
 
   const updateUser = async () => {
     setLoading(true);
-    let result = await fetch(`http://localhost:5800/users/${params.id}`, {
-      method: "Put",
-      body: JSON.stringify({
-        Name,
-        Email,
-        RoomNumber,
-        Block,
-        PhoneNumber,
-        RollNumber,
-        Semester,
-        Address,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    let result = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}users/${params.id}`,
+      {
+        method: "Put",
+        body: JSON.stringify({
+          Name,
+          Email,
+          RoomNumber,
+          Block,
+          PhoneNumber,
+          RollNumber,
+          Semester,
+          Address,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     setLoading(false);
     Navigate("/Hostelirs");
   };

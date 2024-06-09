@@ -19,7 +19,7 @@ function Warden() {
     setShowPasswordDiv(false);
     try {
       const response = await fetch(
-        `http://localhost:5800/users/${userId}/change-ADMIN-password`,
+        `${process.env.REACT_APP_BACKEND_URL}users/${userId}/change-ADMIN-password`,
         {
           method: "PUT",
           headers: {

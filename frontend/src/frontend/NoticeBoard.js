@@ -8,6 +8,8 @@ function NoticeBoard() {
   const [allImage, setAllImage] = useState(null);
   const [imageUpload, setImageUpload] = useState(false);
   const [imageDiv, setImageDiv] = useState(true);
+  const [delLoading, setDelLoading] = useState({ status: false, id: null });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getImage();
@@ -26,9 +28,13 @@ function NoticeBoard() {
         const formData = new FormData();
         formData.append("image", image);
 
-        await axios.post("http://localhost:5800/upload-image", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
+        await axios.post(
+          process.env.REACT_APP_BACKEND_URL + "upload-image",
+          formData,
+          {
+            headers: { "Content-Type": "multipart/form-data" },
+          }
+        );
         alert("Image uploaded successfully");
         getImage();
       } catch (error) {
@@ -48,27 +54,34 @@ function NoticeBoard() {
   };
 
   const getImage = async () => {
+    setLoading(true);
     try {
-      const result = await axios.get("http://localhost:5800/get-image");
+      const result = await axios.get(
+        process.env.REACT_APP_BACKEND_URL + "get-image"
+      );
       console.log(result);
       setAllImage(result.data.data);
     } catch (error) {
       // Handle error during API call
       console.error("Error getting images:", error);
     }
+    setLoading(false);
   };
 
   const deleteImage = async (id, fileId) => {
+    setDelLoading({ status: true, id: id });
     try {
       const result = await axios.delete(
-        `http://localhost:5800/deleteImage/${id}/${fileId}`
+        `${process.env.REACT_APP_BACKEND_URL}deleteImage/${id}/${fileId}`
       );
       console.log(result);
       setAllImage(allImage.filter((image) => image._id !== id));
       alert("Image deleted successfully");
     } catch (error) {
       console.log(error);
+      alert("Error deleting image");
     }
+    setDelLoading({ status: false, id: null });
   };
 
   return (
@@ -119,7 +132,9 @@ function NoticeBoard() {
                   className="m-4 flex flex-col items-center justify-center gap-3 border border-black p-3 rounded-2xl"
                 >
                   <img
-                    src={"http://localhost:5800/image/" + data.image}
+                    src={
+                      process.env.REACT_APP_BACKEND_URL + "image/" + data.image
+                    }
                     alt={"notifications"}
                   ></img>
                   <div className="flex justify-center">
@@ -127,14 +142,18 @@ function NoticeBoard() {
                       className="bg-gray-300 px-4 py-2 rounded-2xl  hover:bg-red-600 hover:text-white "
                       onClick={() => deleteImage(data._id, data.fileId)}
                     >
-                      DELETE
+                      {delLoading.status && delLoading.id === data._id
+                        ? "Deleting..."
+                        : "DELETE"}
                     </button>
                   </div>
                 </div>
               );
             })
           ) : (
-            <p className="text-center ">No New Notifications Uploaded.</p>
+            <p className="text-center ">
+              {loading ? "Loading..." : "No New Notifications Uploaded."}
+            </p>
           )}
         </div>
         <div className="flex justify-center p-3"></div>

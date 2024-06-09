@@ -19,7 +19,7 @@ function RegistrationForm() {
   const collectData = async () => {
     console.log(Name, RoomNumber, Block, PhoneNumber, RollNumber, Semester);
     setLoading(true);
-    let result = await fetch("http://localhost:5800/register", {
+    let result = await fetch(process.env.REACT_APP_BACKEND_URL + "register", {
       method: "post",
       body: JSON.stringify({
         Name,

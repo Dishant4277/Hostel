@@ -13,19 +13,24 @@ function NewLogin({ setCurrentUser }) {
   const [Userpassword, setUserPassword] = useState("");
   const [RollNumber, setRollNumber] = useState("");
   const [isAdmin, setIsAdmin] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const proceedLogin = async (e) => {
+    setLoading(true);
     e.preventDefault();
     console.log(Email, Userpassword);
 
     try {
-      const response = await fetch("http://localhost:5800/login/admin", {
-        method: "POST",
-        body: JSON.stringify({ Email, Userpassword }), // renamed Userpassword to password
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        process.env.REACT_APP_BACKEND_URL + "login/admin",
+        {
+          method: "POST",
+          body: JSON.stringify({ Email, Userpassword }), // renamed Userpassword to password
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
@@ -47,19 +52,24 @@ function NewLogin({ setCurrentUser }) {
       alert("please try again");
       // handle error scenario, e.g. display error message to user
     }
+    setLoading(false);
   };
 
   const userLogin = async (e) => {
+    setLoading(true);
     e.preventDefault();
     console.log(Userpassword, RollNumber);
     try {
-      const response = await fetch("http://localhost:5800/login/student", {
-        method: "POST",
-        body: JSON.stringify({ RollNumber, Userpassword }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        process.env.REACT_APP_BACKEND_URL + "login/student",
+        {
+          method: "POST",
+          body: JSON.stringify({ RollNumber, Userpassword }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       const result = await response.json();
 
@@ -77,6 +87,7 @@ function NewLogin({ setCurrentUser }) {
       console.error("Error verifying user:", error);
       alert("Please try again.");
     }
+    setLoading(false);
   };
 
   if (localStorage.getItem("CurrentUser")) {
@@ -152,7 +163,7 @@ function NewLogin({ setCurrentUser }) {
                   type="submit"
                   onClick={proceedLogin}
                 >
-                  Login as Admin
+                  {loading ? "Loading..." : "Login as Admin"}
                 </button>
               </div>
             ) : (
@@ -179,7 +190,7 @@ function NewLogin({ setCurrentUser }) {
                   type="submit"
                   onClick={userLogin}
                 >
-                  Login as Student
+                  {loading ? "Loading..." : "Login as Student"}
                 </button>
               </div>
             )}
