@@ -68,7 +68,7 @@ const Complaint = () => {
         </div>
       </div>
       <BackButton />
-      <div class="text-2xl font-bold text-center text-blue-600 mt-10 underline">
+      <div class="text-2xl font-bold text-center text-red-600 mt-10 underline">
         Send message to warden
       </div>
 
@@ -85,14 +85,14 @@ const Complaint = () => {
           />
           <button
             type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="w-full bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
             Submit
           </button>
         </form>
       </div>
       <div className="py-5">
-        <h4 className="text-center ">Rules and Advice :</h4>
+        <h4 className="text-center  text-red-600">Rules and Advice :</h4>
         <ul className="list-disc mb-0">
           <li className="mb-2">
             <h6>Messages sent will be seen by the Warden</h6>
