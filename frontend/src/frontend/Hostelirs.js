@@ -12,17 +12,22 @@ const Hostelirs = () => {
   const navigate = useNavigate();
   const [students, setStudents] = useState([]);
   const [showUploadDiv, setShowUploadDiv] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [delLoading, setDelLoading] = useState({ status: false, id: null });
 
-  function getData() {
+  async function getData() {
     // Fetch student data from your backend API (replace with your actual API endpoint)
-    axios
-      .get("http://localhost:5800/getData")
-      .then((response) => {
-        setStudents(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+    setLoading(true);
+    try {
+      const result = await axios.get(
+        process.env.REACT_APP_BACKEND_URL + "getData"
+      );
+      setStudents(result.data);
+    } catch (error) {
+      // Handle error during API call
+      console.error("Error fetching data:", error);
+    }
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -30,16 +35,27 @@ const Hostelirs = () => {
   }, []);
 
   const deleteUser = async (id) => {
-    let result = await fetch(`http://localhost:5800/users/${id}`, {
-      method: "Delete",
-    });
-    result = await result.json();
-    if (result) {
-      getData();
-      alert("Deleted Student Successfully");
+    setDelLoading({ status: true, id: id });
+    try {
+      let result = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}users/${id}`,
+        {
+          method: "Delete",
+        }
+      );
+      result = await result.json();
+      if (result) {
+        getData();
+        alert("Deleted Student Successfully");
+      }
+
+      console.warn(id);
+    } catch (error) {
+      console.log(error);
+      alert("Error deleting student");
     }
 
-    console.warn(id);
+    setDelLoading({ status: false, id: null });
   };
 
   function addsingle() {
@@ -236,7 +252,9 @@ const Hostelirs = () => {
                         type="submit"
                         onClick={() => deleteUser(student._id)}
                       >
-                        Delete
+                        {delLoading.status && delLoading.id === student._id
+                          ? "Deleting"
+                          : "Delete"}
                       </button>
 
                       <Link to={"/Update/" + student._id} className="p-2 ">
@@ -249,7 +267,11 @@ const Hostelirs = () => {
             </table>
           </Card>
         ) : (
-          <p>No student data available. Please add some students.</p>
+          <p className="text-[18px]">
+            {loading
+              ? "Loading..."
+              : "No student data available. Please add some students."}
+          </p>
         )}
       </div>
 

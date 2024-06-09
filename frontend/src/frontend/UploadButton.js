@@ -11,7 +11,7 @@ const UploadButton = ({ getData, setShowUploadDiv }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5800/upload/file/",
+        process.env.REACT_APP_BACKEND_URL + "upload/file/",
         formData,
         {
           headers: {

@@ -16,17 +16,20 @@ function AdminRegistration() {
   const collectData = async () => {
     console.log(Name, Email, PhoneNumber);
     setLoading(true);
-    let result = await fetch("http://localhost:5800/register/admin", {
-      method: "post",
-      body: JSON.stringify({
-        Name,
-        Email,
-        Designation,
-        PhoneNumber,
-        Userpassword,
-      }),
-      headers: { "content-Type": "application/json" },
-    });
+    let result = await fetch(
+      process.env.REACT_APP_BACKEND_URL + "register/admin",
+      {
+        method: "post",
+        body: JSON.stringify({
+          Name,
+          Email,
+          Designation,
+          PhoneNumber,
+          Userpassword,
+        }),
+        headers: { "content-Type": "application/json" },
+      }
+    );
     result = await result.json();
     console.log(result);
     alert("New Admin User Registered Successfully");

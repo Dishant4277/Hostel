@@ -53,7 +53,9 @@ function StudentPage() {
 
   const getImage = async () => {
     try {
-      const result = await axios.get("http://localhost:5800/get-image");
+      const result = await axios.get(
+        process.env.REACT_APP_BACKEND_URL + "get-image"
+      );
       console.log(result);
       setAllImage(result.data.data);
     } catch (error) {
@@ -66,7 +68,7 @@ function StudentPage() {
     setShowPasswordDiv(!showPasswordDiv);
     try {
       const response = await fetch(
-        `http://localhost:5800/users/${userId}/change-password`,
+        `${process.env.REACT_APP_BACKEND_URL}users/${userId}/change-password`,
         {
           method: "PUT",
           headers: {
@@ -184,7 +186,9 @@ function StudentPage() {
                   <img
                     className="rounded-2xl"
                     alt="images"
-                    src={"http://localhost:5800/image/" + data.image}
+                    src={
+                      process.env.REACT_APP_BACKEND_URL + "image/" + data.image
+                    }
                   ></img>
                 </div>
               );
