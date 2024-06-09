@@ -10,6 +10,7 @@ function StudentPage() {
   const navigate = useNavigate();
   const [showPasswordDiv, setShowPasswordDiv] = useState(false);
   const [newpassword, setnewPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const Navigate = useNavigate();
   const params = useParams();
@@ -52,6 +53,7 @@ function StudentPage() {
   }, []);
 
   const getImage = async () => {
+    setLoading(true);
     try {
       const result = await axios.get(
         process.env.REACT_APP_BACKEND_URL + "get-image"
@@ -62,6 +64,7 @@ function StudentPage() {
       // Handle error during API call
       console.error("Error getting images:", error);
     }
+    setLoading(false);
   };
 
   async function changeUserPassword(userId, newPassword) {
@@ -194,7 +197,9 @@ function StudentPage() {
               );
             })
           ) : (
-            <p className="text-center m-3">No New Notifications Available.</p>
+            <p className="text-center m-3 text-[18px]">
+              {loading ? "Loading..." : "No New Notifications Available."}
+            </p>
           )}
         </div>
 
