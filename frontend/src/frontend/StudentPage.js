@@ -135,7 +135,7 @@ function StudentPage() {
         <div className="float-right px-2 flex">
           <div className="mx-5 text-lg font-sans">
             <button
-              className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline-purple focus:outline-none text-white  py-2 px-3 rounded-2xl"
+              className="shadow bg-blue-300 hover:bg-blue-600 focus:shadow-outline-purple focus:outline-none text-gray-600 hover:text-white  py-2 px-3 rounded-2xl"
               onClick={showDIV}
             >
               change password
@@ -151,7 +151,7 @@ function StudentPage() {
                 onChange={(e) => setnewPassword(e.target.value)}
               ></input>
               <button
-                className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline-purple focus:outline-none text-white px-0 my-1 rounded-2xl"
+                className="shadow bg-blue-400 hover:bg-blue-600 focus:shadow-outline-purple focus:outline-none text-white px-0 my-1 rounded-2xl"
                 onClick={() =>
                   changeUserPassword(JSON.parse(auth)._id, newpassword)
                 }
@@ -167,7 +167,7 @@ function StudentPage() {
         </div>
       </div>
 
-      <div className="flex container items-start min-h-screen  justify-evenly p-0 ">
+      <div className="flex  items-start min-h-screen  bg-slate-200 justify-evenly p-0 ">
         <div className="container w-75 h-75 mt-4">
           <div className="flex justify-center items-start">
             <h1 className="text-red-500">NOTICE BOARD !!</h1>

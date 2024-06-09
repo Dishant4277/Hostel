@@ -46,6 +46,9 @@ const HostelStudents = () => {
           </h5>
         </div>
       </div>
+
+
+      <div className=" bg-slate-100 h-screen overflow-hidden">
       <BackButton />
       <div class="text-2xl font-bold text-center text-blue-500 mt-10 underline">
         Students residing in the Hostel
@@ -169,7 +172,7 @@ const HostelStudents = () => {
         </Card>
       </div>
 
-      <Footer />
+      </div>
     </>
   );
 };

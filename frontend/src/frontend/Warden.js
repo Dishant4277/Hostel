@@ -50,10 +50,10 @@ function Warden() {
   };
 
   return (
-    <div className="">
+    <div className=" bg-gray-200 h-screen">
       <Navbar />
 
-      <div className="flex justify-between items-center py-2 bg-gray-100 ">
+      <div className="flex justify-between items-center py-2 bg-slate-200 ">
         <h1 className="text-yellow-500 px-5">ADMIN ACCESS !!!</h1>
 
         <div className="mx-4 text-lg font-sans flex gap-3">

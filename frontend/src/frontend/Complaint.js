@@ -47,7 +47,7 @@ const Complaint = () => {
 
   return (
     <>
-      <div className="flex bg-blue-300 font-serif p-2 items-center justify-evenly m-0">
+      <div className="flex bg-blue-300 font-serif py-3 items-center justify-evenly ">
         <div className="logo ">
           <img
             className="float-left max-h-20"
@@ -67,61 +67,63 @@ const Complaint = () => {
           </h5>
         </div>
       </div>
-      <BackButton />
-      <div class="text-2xl font-bold text-center text-red-600 mt-10 underline">
-        Send message to warden
-      </div>
+      <div className="h-screen bg-slate-200 overflow-hidden">
+        <BackButton />
+        <div class="text-2xl font-bold text-center  text-red-600 mt-10 underline">
+          Send message to warden
+        </div>
 
-      <div className="container flex justify-center mt-10 ">
-        <form
-          className="bg-gray-100 p-6 rounded-lg shadow-md w-96"
-          onSubmit={handleSubmit}
-        >
-          <textarea
-            className="w-full h-32 p-2 border rounded-md resize-y"
-            value={textMessage}
-            onChange={(e) => setTextMessage(e.target.value)}
-            placeholder="Write here"
-          />
-          <button
-            type="submit"
-            className="w-full bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        <div className="container flex justify-center mt-10 ">
+          <form
+            className="bg-gray-100 p-6 rounded-lg shadow-md w-96"
+            onSubmit={handleSubmit}
           >
-            Submit
-          </button>
-        </form>
-      </div>
-      <div className="py-5">
-        <h4 className="text-center  text-red-600">Rules and Advice :</h4>
-        <ul className="list-disc mb-0">
-          <li className="mb-2">
-            <h6>Messages sent will be seen by the Warden</h6>
-          </li>
-          <li className="mb-2">
-            <h6>Don't send messages un-neccessary</h6>
-          </li>
-          <li className="mb-2">
-            <h6>Don't use abusive language</h6>
-          </li>
-          <li className="mb-2">
-            <h6>
-              It may take some time to review your concern so kindly be patient
-              and dont send multiple messages
-            </h6>
-          </li>
-          <li className="mb-2">
-            <h6>message should only contain relevent information</h6>
-          </li>
-          <li className="mb-2">
-            <h6>
-              If anyone found guilty of breaking the rules , action will be
-              taken against him accordingly
-            </h6>
-          </li>
-        </ul>
-      </div>
-    </>
-  );
+            <textarea
+              className="w-full h-32 p-2 border rounded-md resize-y"
+              value={textMessage}
+              onChange={(e) => setTextMessage(e.target.value)}
+              placeholder="Write here"
+            />
+            <button
+              type="submit"
+              className="w-full bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+        <div className="py-5">
+          <h4 className="text-center  text-red-600">Rules and Advice :</h4>
+          <ul className="list-disc mb-0">
+            <li className="mb-2">
+              <h6>Messages sent will be seen by the Warden</h6>
+            </li>
+            <li className="mb-2">
+              <h6>Don't send messages un-neccessary</h6>
+            </li>
+            <li className="mb-2">
+              <h6>Don't use abusive language</h6>
+            </li>
+            <li className="mb-2">
+              <h6>
+                It may take some time to review your concern so kindly be patient
+                and dont send multiple messages
+              </h6>
+            </li>
+            <li className="mb-2">
+              <h6>message should only contain relevent information</h6>
+            </li>
+            <li className="mb-2">
+              <h6>
+                If anyone found guilty of breaking the rules , action will be
+                taken against him accordingly
+              </h6>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </>
+      );
 };
 
-export default Complaint;
+      export default Complaint;

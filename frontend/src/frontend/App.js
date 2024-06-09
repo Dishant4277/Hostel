@@ -17,6 +17,7 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import HostelStudents from "./HostelStudents";
 import AdminRegistration from "./AdminRegistration";
+import About from "./About";
 
 function App() {
   const User_Type = {
@@ -72,6 +73,14 @@ function App() {
             element={
               <PublicElement>
                 <NewLogin setCurrentUser={setAndStoreCurrentUser} />
+              </PublicElement>
+            }
+          />
+          <Route
+            path="/About"
+            element={
+              <PublicElement>
+                <About  />
               </PublicElement>
             }
           />
