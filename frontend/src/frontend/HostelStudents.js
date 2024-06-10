@@ -47,7 +47,7 @@ const HostelStudents = () => {
         </div>
       </div>
 
-      <div className=" bg-slate-100 h-screen overflow-hidden">
+      <div className=" bg-slate-100 ">
         <BackButton />
         <div class="text-2xl font-bold text-center text-blue-500 mt-10 underline">
           Students residing in the Hostel
