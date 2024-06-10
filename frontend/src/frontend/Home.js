@@ -118,7 +118,7 @@ function Home({ setCurrentUser }) {
               </div>
               <div className="p-3 flex flex-col items-center">
                 <h4 className="underline"> Asst. Warden</h4>
-                <h5>Om Prakash Sharma</h5>
+                <h5>Om Prakash Thakur</h5>
                 <h6>9906189933</h6>
               </div>
             </div>
@@ -140,7 +140,7 @@ function Home({ setCurrentUser }) {
             easier for the hosteliers to reach the college
           </p>
           <p>
-            Hostel is within a distance of 500 meteres from the lecture halls{" "}
+            Hostel is within a distance of 300 meteres from the lecture halls{" "}
           </p>
         </div>
       </div>
