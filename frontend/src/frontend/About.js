@@ -9,6 +9,9 @@ import image7 from "./images/Hostel3.jpeg";
 import image8 from "./images/Hostel2.jpeg";
 import Navbar from "./Navbar"
 import { useState } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 function About() {
 
@@ -46,40 +49,44 @@ function About() {
         </div>
         <div className="flex justify-evenly">
           <div className="rounded-xl p-1 w-1/5" >
-            <img className="rounded shadow" src={image6}></img>
+            // <img className="rounded shadow" src={image6}></img>
             <div className="justify-center text-center">
-              <p className="p-0 m-0">loremipsun</p>
+               <FontAwesomeIcon icon={faUser} size="4x"/>
+              <p className="pt-2 m-0">Dr Vikesh Kumar</p>
               <p className="p-0 m-0">
-                designation
-              </p> <p className="p-0 m-0">phonenumebr</p>
+                Warden
+              </p> <p className="p-0 m-0">9697327153</p>
             </div>
           </div>
           <div className="rounded-xl p-1 w-1/5" >
-            <img className="rounded shadow" src={image6}></img>
+            
             <div className="justify-center text-center">
-              <p className="p-0 m-0">loremipsun</p>
+    <FontAwesomeIcon icon={faUser} size="4x"/>
+              <p className="pt-2 m-0">Om Prakash Sharma</p>
               <p className="p-0 m-0">
-                designation
-              </p> <p className="p-0 m-0">phonenumebr</p>
+                Asst. Warden
+              </p> <p className="p-0 m-0">9906189933</p>
             </div>
           </div>
           
           <div className="rounded-xl p-1 w-1/5" >
-            <img className="rounded shadow" src={image6}></img>
+           
             <div className="justify-center text-center">
-              <p className="p-0 m-0">loremipsun</p>
+    <FontAwesomeIcon icon={faUser} size="4x"/>
+              <p className="pt-2 m-0">Ms Harinder Dhingra</p>
               <p className="p-0 m-0">
                 designation
-              </p> <p className="p-0 m-0">phonenumebr</p>
+              </p> <p className="p-0 m-0">9419132700</p>
             </div>
           </div>
           <div className="rounded-xl p-1 w-1/5" >
-            <img className="rounded shadow" src={image6}></img>
+           
             <div className="justify-center text-center">
-              <p className="p-0 m-0">loremipsun</p>
+                <FontAwesomeIcon icon={faUser} size="4x"/>
+              <p className="pt-2 m-0">Mr Amit Pandoh</p>
               <p className="p-0 m-0">
                 designation
-              </p> <p className="p-0 m-0">phonenumebr</p>
+              </p> <p className="p-0 m-0">9419307651</p>
             </div>
           </div>
 
