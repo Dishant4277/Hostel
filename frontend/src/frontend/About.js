@@ -137,42 +137,8 @@ function About() {
       </div>
       </div>
 
-      <div>
-        <div className="text-center">
-          <p className="text-center text-4xl py-2">Alumni</p>
-
-        </div>
-        <div>
-          <div className="flex bg-gray-300 p-5">
-            <div className="p-5 m-auto bg-gray-200 rounded-xl">
-              <p className="">
-                The hostel has a total of 150 rooms with a capacity of 200 students{" "}
-              </p>
-              <p>
-                each room has a fan installed along with a tubelight and a charging
-                port
-              </p>
-            </div>
-            <div className=" p-4 bg-gray-200 rounded-3xl">
-              <img className="rounded-2xl shadow w-96 h-78" src={image3}></img>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div className="flex bg-gray-300 p-5 border">
-        <div className=" p-4 bg-gray-200 rounded-3xl">
-          <img className="rounded-2xl shadow w-96" src={image2}></img>
-        </div>
-
-        <div className="p-5 m-auto bg-gray-200 rounded-xl">
-          <p className="">
-            Hostel comes with ample parking space for vehicles both two wheelers
-            and four wheelers
-          </p>
-          <p></p>
-        </div>
-      </div>
+    
+     
 
 
 
