@@ -185,28 +185,7 @@ function Home({ setCurrentUser }) {
         </div>
       </div>
 
-      <div className="inline-flex">
-        <div className=" p-3">
-          <img className="w-102 h-96 border rounded-3xl" src={image2}></img>
-        </div>
-        <div className=" p-3">
-          <img className="w-102 h-96 border rounded-3xl" src={image4}></img>
-        </div>
-        <div className=" p-3">
-          <img className="w-102 h-96 border rounded-3xl" src={image5}></img>
-        </div>
-      </div>
-      <div className="inline-flex">
-        <div className=" p-3">
-          <img className="w-102 h-96 border rounded-3xl" src={image6}></img>
-        </div>
-        <div className=" p-3">
-          <img className="w-102 h-96 border rounded-3xl" src={image}></img>
-        </div>
-        <div className=" p-3">
-          <img className="w-102 h-96 border rounded-3xl" src={image7}></img>
-        </div>
-      </div>
+      
     </>
   );
 }
