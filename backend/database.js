@@ -240,7 +240,7 @@ app.put("/sendMessage/:id", async (req, res) => {
       return res.status(404).send("User not found.");
     }
 
-    user.Message = req.body.textMessage;
+    user.textMessage = req.body.textMessage;
     const result = await user.save();
 
     res.send(result);
