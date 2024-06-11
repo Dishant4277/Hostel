@@ -49,7 +49,7 @@ function About() {
         </div>
         <div className="flex justify-evenly">
           <div className="rounded-xl p-1 w-1/5" >
-            // <img className="rounded shadow" src={image6}></img>
+           
             <div className="justify-center text-center">
                <FontAwesomeIcon icon={faUser} size="4x"/>
               <p className="pt-2 m-0">Dr Vikesh Kumar</p>
