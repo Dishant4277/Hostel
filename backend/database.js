@@ -259,7 +259,7 @@ app.put("/deleteMessage/:id", async (req, res) => {
       return res.status(404).send("User not found.");
     }
 
-    user.Message = "";
+    user.textMessage = "";
     const result = await user.save();
 
     res.send(result);
