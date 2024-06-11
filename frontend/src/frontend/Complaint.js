@@ -18,7 +18,7 @@ const Complaint = () => {
   const sendMessage = async (userId, textMessage) => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/sendMessage/${userId}`,
+        `${process.env.REACT_APP_BACKEND_URL}sendMessage/${userId}`,
         {
           method: "PUT",
           headers: {
