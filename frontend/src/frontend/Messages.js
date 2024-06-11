@@ -40,7 +40,7 @@ export default function Messages() {
         <Card className="h-70 w-70 my-10 overflow-scroll p-5 bg-gray-200">
           {messages.map(
             (message, index) =>
-              message.Message && (
+              message.textMessage && (
                 <div className="rounded-3xl bg-gray-100 py-2 px-3 mt-2 ">
                   <div className="flex justify-evenly space-x-5 text-xs text-blue-500">
                     <p> {message.Name}</p>
@@ -50,7 +50,7 @@ export default function Messages() {
                     </p>
                   </div>
                   <div className="text-base flex justify-between ">
-                    {message.Message}
+                    {message.textMessage}
                     <button
                       className="bg-gray-300 px-2 py-2 rounded-3xl hover:bg-black hover:text-white"
                       type="submit"
