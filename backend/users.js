@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
   Branch: String,
   Address: String,
   Userpassword: String,
-  Message: String,
+  textMessage: String,
 });
 
 module.exports = mongoose.model("users", userSchema);
